@@ -31,21 +31,24 @@ jobs:
     - name: directory listing
       run: Get-ChildItem -Recurse
     
-    #- name: Upload ADSearch.exe
-    #  uses: actions/upload-artifact@v4
-    #  with:
-    #    name: ADSearch.exe
-    #    path: ADSearch\ADSearch\ADSearch\bin\Release\ADSearch.exe
+    - name: Upload ADSearch.exe
+      uses: actions/upload-artifact@v4
+      with:
+        name: ADSearch.exe
+        path: ADSearch\bin\Release\ADSearch.exe
 
-    #- name: Setup DotFuscator
-    #  run: |
-    #    7z x Dotfuscator\DotfuscatorCE.zip
-    #    mkdir -p $env:USERPROFILE\AppData\Local\"PreEmptive Solutions"\"Dotfuscator Community Edition"\6.0 -erroraction 'silentlycontinue'
-    #    cp DotfuscatorCE\license\* $env:USERPROFILE\AppData\Local\"PreEmptive Solutions"\"Dotfuscator Community Edition"\6.0\
+    - name: Setup DotFuscator
+      run: |
+        7z x Dotfuscator\DotfuscatorCE.zip
+        mkdir -p $env:USERPROFILE\AppData\Local\"PreEmptive Solutions"\"Dotfuscator Community Edition"\6.0 -erroraction 'silentlycontinue'
+        cp DotfuscatorCE\license\* $env:USERPROFILE\AppData\Local\"PreEmptive Solutions"\"Dotfuscator Community Edition"\6.0\
 
-    #- name: Build obfuscated versions
-    #  working-directory: ${{env.GITHUB_WORKSPACE}}
-    #  run: DotfuscatorCE\dotfuscator.exe "DotfuscatorCE\dotfuscator_config.xml"
+    - name: Build obfuscated versions
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: DotfuscatorCE\dotfuscator.exe "DotfuscatorCE\dotfuscator_config.xml"
+    
+    - name: directory listing
+      run: Get-ChildItem -Recurse
 
     #- name: Upload obfuscated version
     #  uses: actions/upload-artifact@v4

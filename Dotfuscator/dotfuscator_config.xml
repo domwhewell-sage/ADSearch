@@ -9,23 +9,23 @@
   <input>
     <loadpaths />
     <asmlist>
-      <inputassembly refid="da9df55d-8b79-4f7b-8cbc-27517a3d15d5">
+      <inputassembly>
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
         <option>transformxaml</option>
-        <file dir="ADSearch\ADSearch\ADSearch\bin\Release" name="ADSearch.exe" />
+        <file dir="ADSearch\bin\Release" name="ADSearch.exe" />
       </inputassembly>
     </asmlist>
   </input>
   <output>
-    <file dir="${configdir}\Dotfuscated\any" />
+    <file dir="Dotfuscator" />
   </output>
   <renaming>
     <option>xmlserialization</option>
     <mapping>
       <mapoutput overwrite="false">
-        <file dir="${configdir}\Dotfuscated\any" name="Map.xml" />
+        <file dir="Dotfuscator" name="Map.xml" />
       </mapoutput>
     </mapping>
     <referencerulelist>
