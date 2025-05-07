@@ -44,11 +44,8 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: DotfuscatorCE\dotfuscator.exe "Dotfuscator\dotfuscator_config.xml"
     
-    - name: directory listing
-      run: Get-ChildItem -Recurse
-
-    #- name: Upload obfuscated version
-    #  uses: actions/upload-artifact@v4
-    #  with:
-    #    name: ADSearch_Obfuscated.exe
-    #    path: ADSearch_Obfuscated.exe
+    - name: Upload obfuscated version
+      uses: actions/upload-artifact@v4
+      with:
+        name: ADSearch_Obfuscated.exe
+        path: Dotfuscator\ADSearch.exe
