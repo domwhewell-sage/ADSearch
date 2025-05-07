@@ -14,7 +14,7 @@
         <option>stripoa</option>
         <option>library</option>
         <option>transformxaml</option>
-        <file dir="ADSearch\binaries\Release" name="ADSearch.exe" />
+        <file dir="ADSearch\ADSearch\ADSearch\bin\Release" name="ADSearch.exe" />
       </inputassembly>
     </asmlist>
   </input>

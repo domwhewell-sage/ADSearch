@@ -20,17 +20,19 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Restore the application
+    - name: Run NuGet restore
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: nuget restore ${{env.SOLUTION_FILE_PATH}}
 
-    - name: run MSBuild
+    - name: Build ADSearch.exe
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
     
-    - name: run dir listing
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: dir
+    - name: Upload ADSearch.exe
+      uses: actions/upload-artifact@v4
+      with:
+        name: ADSearch.exe
+        path: ADSearch\ADSearch\ADSearch\bin\Release\ADSearch.exe
 
     - name: Setup DotFuscator
       run: |
